@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CY-TECT - Next-Gen Cybersecurity</title>
     <style>
-                * {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         :root {
             --primary: #202A44;
             --accent: #7C3AED;
@@ -18,25 +17,21 @@
             --neutral: #E5E7EB;
             --highlight: #FBBF24;
         }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--primary);
             color: var(--neutral);
             line-height: 1.6;
         }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
         header.scrolled {
             background-color: rgba(32, 42, 68, 0.95);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-
         .logo {
             font-size: 24px;
             font-weight: bold;
@@ -44,22 +39,18 @@
             text-transform: uppercase;
             letter-spacing: 2px;
         }
-
         .nav-links li {
             margin-left: 30px;
         }
-
         .nav-links a {
             color: var(--neutral);
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
         }
-
         .nav-links a:hover {
             color: var(--accent);
         }
-
         .hero {
             height: 100vh;
             display: flex;
@@ -68,7 +59,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .hero::before {
             content: "";
             position: absolute;
@@ -79,7 +69,6 @@
             background: radial-gradient(circle, rgba(124, 58, 237, 0.1) 0%, rgba(124, 58, 237, 0) 70%);
             animation: pulse 15s infinite;
         }
-
         @keyframes pulse {
             0% {
                 transform: scale(1);
@@ -91,19 +80,16 @@
                 transform: scale(1);
             }
         }
-
         .hero-content {
             position: relative;
             z-index: 1;
         }
-
         h1 {
             font-size: 4rem;
             margin-bottom: 20px;
             text-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
             animation: fadeInUp 1s ease-out;
         }
-
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 30px;
@@ -112,7 +98,6 @@
             opacity: 0;
             animation-fill-mode: forwards;
         }
-
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -123,7 +108,6 @@
                 transform: translateY(0);
             }
         }
-
         .cta-button {
             display: inline-block;
             background-color: var(--accent);
@@ -137,30 +121,25 @@
             opacity: 0;
             animation-fill-mode: forwards;
         }
-
         .cta-button:hover {
             background-color: var(--highlight);
             color: var(--primary);
             box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
         }
-
         .services {
             padding: 100px 0;
         }
-
         .services h2 {
             font-size: 2.5rem;
             margin-bottom: 50px;
             text-align: center;
             color: var(--accent);
         }
-
         .service-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
         }
-
         .service-card {
             background-color: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
@@ -169,9 +148,7 @@
             transition: all 0.3s ease;
             opacity: 0;
             transform: translateY(20px);
-            
         }
-
         .service-card img {
             width: 100%;
             max-width: 250px;
@@ -180,65 +157,52 @@
             margin-bottom: 15px;
             object-fit: cover;
         }
-
-
         .service-card.animate {
             animation: fadeInUp 0.6s ease-out forwards;
         }
-
         .service-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(124, 58, 237, 0.2);
         }
-
         .service-card h3 {
             font-size: 1.5rem;
             margin-bottom: 15px;
             color: var(--secondary);
         }
-
         .service-card p {
             font-size: 1rem;
         }
-
         .about, .team, .contact {
             padding: 100px 0;
         }
-
         .about h2, .team h2, .contact h2 {
             font-size: 2.5rem;
             margin-bottom: 50px;
             text-align: center;
             color: var(--accent);
         }
-
         .about-content {
             display: flex;
             align-items: center;
             gap: 50px;
         }
-
         .about-image {
             flex: 1;
             max-width: 500px;
         }
-
         .about-image img {
             width: 100%;
             border-radius: 10px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
-
         .about-text {
             flex: 1;
         }
-
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
         }
-
         .team-member {
             background-color: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
@@ -246,29 +210,24 @@
             text-align: center;
             transition: all 0.3s ease;
         }
-
         .team-member img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             margin-bottom: 20px;
         }
-
         .team-member h3 {
             color: var(--secondary);
             margin-bottom: 10px;
         }
-
         .team-member p {
             font-style: italic;
             color: var(--neutral);
         }
-
         .contact-form {
             max-width: 600px;
             margin: 0 auto;
         }
-
         .contact-form input,
         .contact-form textarea {
             width: 100%;
@@ -279,12 +238,10 @@
             background-color: rgba(255, 255, 255, 0.1);
             color: var(--neutral);
         }
-
         .contact-form textarea {
             height: 150px;
             resize: vertical;
         }
-
         .contact-form button {
             background-color: var(--accent);
             color: var(--neutral);
@@ -294,51 +251,42 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-
         .contact-form button:hover {
             background-color: var(--highlight);
             color: var(--primary);
         }
-
         footer {
             background-color: rgba(32, 42, 68, 0.9);
             padding: 30px 0;
             text-align: center;
         }
-
         .social-icons {
             margin-bottom: 20px;
         }
-
         .social-icons a {
             color: var(--neutral);
             font-size: 24px;
             margin: 0 10px;
             transition: color 0.3s ease;
         }
-
         .social-icons a:hover {
             color: var(--accent);
         }
-
         .features {
             padding: 100px 0;
             background-color: rgba(255, 255, 255, 0.02);
         }
-
         .features h2 {
             font-size: 2.5rem;
             margin-bottom: 50px;
             text-align: center;
             color: var(--accent);
         }
-
         .feature-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
         }
-
         .feature-item {
             text-align: center;
             padding: 30px;
@@ -346,22 +294,18 @@
             border-radius: 10px;
             transition: all 0.3s ease;
         }
-
         .feature-item:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(124, 58, 237, 0.2);
         }
-
         .feature-icon {
             font-size: 3rem;
             color: var(--secondary);
             margin-bottom: 20px;
         }
-
         .dropdown {
             position: relative;
         }
-
         .dropdown-content {
             display: none;
             position: absolute;
@@ -370,30 +314,24 @@
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1;
         }
-
         .dropdown-content li {
             margin: 0;
         }
-
         .dropdown-content a {
             color: var(--neutral);
             padding: 12px 16px;
             text-decoration: none;
             display: block;
         }
-
         .dropdown-content a:hover {
             background-color: var(--accent);
         }
-
         .dropdown:hover .dropdown-content {
             display: block;
         }
-
         .dropdown-content li {
             margin: 0;
         }
-
         header {
             background-color: rgba(32, 42, 68, 0.95);
             position: fixed;
@@ -401,19 +339,16 @@
             z-index: 1000;
             transition: all 0.3s ease;
         }
-
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 0;
         }
-
         .nav-links {
             display: flex;
             list-style: none;
         }
-        
         .mobile-menu-btn {
             display: none;
             font-size: 24px;
@@ -423,11 +358,9 @@
             cursor: pointer;
             transition: color 0.3s ease;
         }
-
-.mobile-menu-btn:hover {
-    color: var(--highlight);
-}
-
+        .mobile-menu-btn:hover {
+            color: var(--highlight);
+        }
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -439,17 +372,25 @@
                 background-color: var(--primary);
                 padding: 20px;
             }
-
             .nav-links.active {
                 display: flex;
             }
-
             .mobile-menu-btn {
                 display: block;
             }
+            .hero {
+                padding: 100px 0 50px;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
         }
-
-
     </style>
 </head>
 <body>
@@ -468,7 +409,6 @@
             </ul>
         </nav>
     </header>    
-    
     <main>
         <section id="home" class="hero">
             <div class="container hero-content">
@@ -541,7 +481,6 @@
                 });
             });
         });
-
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
             document.querySelector('.hero').style.backgroundPositionY = `${scrollY * 0.5}px`;
@@ -566,12 +505,9 @@
         });
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
-
         mobileMenuBtn.addEventListener('click', () => {
         navLinks.classList.toggle('active');
         });
-
     </script>
 </body>
 </html>
-
