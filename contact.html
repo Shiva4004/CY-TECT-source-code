@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CY-TECT - Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <style>
+        :root {
+            --primary: #202A44;
+            --accent: #7C3AED;
+            --secondary: #34D399;
+            --neutral: #E5E7EB;
+            --highlight: #FBBF24;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--primary);
+            color: var(--neutral);
+            line-height: 1.6;
+        }
+        header {
+            background-color: rgba(32, 42, 68, 0.9);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--accent);
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li {
+            margin-left: 30px;
+        }
+        .nav-links a {
+            color: var(--neutral);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        .contact {
+            padding: 150px 0 100px;
+        }
+        .contact-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+        }
+        .contact-info {
+            flex: 1;
+            padding: 60px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+            color: white;
+        }
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        .contact-info p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .info-item i {
+            font-size: 1.2rem;
+            margin-right: 15px;
+        }
+        .social-icons {
+            margin-top: 30px;
+        }
+        .social-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        .social-icon:hover {
+            background-color: white;
+            color: var(--accent);
+        }
+        .contact-form-container {
+            flex: 1;
+            padding: 60px;
+            background-color: white;
+        }
+        .contact-form h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+        .input-group {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .input-group input,
+        .input-group textarea {
+            width: 100%;
+            padding: 10px 0;
+            font-size: 1rem;
+            color: var(--primary);
+            border: none;
+            border-bottom: 2px solid #ddd;
+            outline: none;
+            background-color: transparent;
+            transition: border-color 0.3s ease;
+        }
+        .input-group label {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            font-size: 1rem;
+            color: #999;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+        .input-group input:focus,
+        .input-group textarea:focus {
+            border-bottom-color: var(--accent);
+        }
+        .input-group input:focus ~ label,
+        .input-group textarea:focus ~ label,
+        .input-group input:valid ~ label,
+        .input-group textarea:valid ~ label {
+            top: -20px;
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
+        .submit-btn {
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .submit-btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .modal-content {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+            margin: 15% auto;
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+            animation: modalFadeIn 0.5s;
+        }
+        @keyframes modalFadeIn {
+            from {opacity: 0; transform: translateY(-50px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+        .modal h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .modal p {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        .modal-close {
+            color: white;
+            background-color: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .modal-close:hover {
+            background-color: rgba(255,255,255,0.3);
+        }
+        footer {
+            background-color: rgba(32, 42, 68, 0.9);
+            padding: 30px 0;
+            text-align: center;
+        }
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: var(--accent);
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .contact-container {
+                flex-direction: column;
+            }
+            .contact-info,
+            .contact-form-container {
+                padding: 40px;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: var(--primary);
+                padding: 20px;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li {
+                margin: 10px 0;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">CY-TECT</div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="whitepapers.html">Whitepapers</a></li>
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                <p>We're here to help and answer any question you might have. We look forward to hearing from you.</p>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Shri Ram Global School, HS-3, Techzone-7, Greater Noida (W)</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+91 6398603248, +91 9773929168</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>contact@cy-tect.web.app</span>
+                </div>
+            </div>
+            <div class="contact-form-container">
+                <form class="contact-form" id="contactForm">
+                    <h3>Send us a message</h3>
+                    <div class="input-group">
+                        <input type="text" id="name" required>
+                        <label for="name">Your Name</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="email" required>
+                        <label for="email">Your Email</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="subject" required>
+                        <label for="subject">Subject</label>
+                    </div>
+                    <div class="input-group">
+                        <textarea id="message" rows="5" required></textarea>
+                        <label for="message">Your Message</label>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+                <div id="successModal" class="modal">
+                    <div class="modal-content">
+                        <h2>Message Sent Successfully!</h2>
+                        <p>Thank you for reaching out. Your message is important to us, and we're excited to connect with you. Our team will get back to you shortly with a personalized response.</p>
+                        <button class="modal-close">Close</button>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 CY-TECT. All rights reserved.</p>
+    </footer>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyB6fJXtA-gC7giQgtyD5PxL7byXJN2vJOg",
+            authDomain: "eye-sarthi.firebaseapp.com",
+            databaseURL: "https://eye-sarthi-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "eye-sarthi",
+            storageBucket: "eye-sarthi.appspot.com",
+            messagingSenderId: "739621415444",
+            appId: "1:739621415444:web:e7c61083f80fdfde4fd501",
+            measurementId: "G-75YM3PED46"
+        };
+        firebase.initializeApp(firebaseConfig);
+        var database = firebase.database();
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var subject = document.getElementById('subject').value;
+            var message = document.getElementById('message').value;
+            database.ref('contacts').push({
+                name: name,
+                email: email,
+                subject: subject,
+                message: message,
+                timestamp: firebase.database.ServerValue.TIMESTAMP
+            }).then(function() {
+                document.getElementById('successModal').style.display = 'block';
+                document.getElementById('contactForm').reset();
+            }).catch(function(error) {
+                console.error("Error writing to Firebase Database", error);
+                alert('An error occurred. Please try again later.');
+            });
+        });
+        document.querySelector('.modal-close').addEventListener('click', function() {
+            document.getElementById('successModal').style.display = 'none';
+        });
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

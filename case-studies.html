@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CY-TECT - Case Studies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary: #202A44;
+            --accent: #7C3AED;
+            --secondary: #34D399;
+            --neutral: #E5E7EB;
+            --highlight: #FBBF24;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--primary);
+            color: var(--neutral);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: rgba(32, 42, 68, 0.8);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li {
+            margin-left: 30px;
+        }
+        .nav-links a {
+            color: var(--neutral);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        .case-studies-content {
+            padding-top: 100px;
+        }
+        .case-study {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        .case-study h2 {
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        .case-study .summary {
+            margin-bottom: 15px;
+        }
+        .read-more-btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--neutral);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .read-more-btn:hover {
+            background-color: var(--highlight);
+        }
+        .case-study-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: var(--primary);
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid var(--accent);
+            width: 80%;
+            max-width: 800px;
+        }
+        .close-modal {
+            color: var(--accent);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        footer {
+            background-color: rgba(32, 42, 68, 0.9);
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: var(--accent);
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: var(--primary);
+                padding: 20px;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">CY-TECT</div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="whitepapers.html">Whitepapers</a></li>
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container case-studies-content">
+        <h1>CY-TECT Case Studies</h1>
+        <div class="case-study">
+            <h2>Securing a Fortune 500 Company's Infrastructure</h2>
+            <p class="summary">Learn how CY-TECT implemented a comprehensive security solution for a global corporation, enhancing their cybersecurity posture and preventing potential breaches.</p>
+            <a href="#" class="read-more-btn">Read Full Case Study</a>
+            <div class="case-study-modal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <h2>Securing a Fortune 500 Company's Infrastructure</h2>
+                    <p>CY-TECT was approached by a Fortune 500 company facing increasing cybersecurity threats. Our team conducted a thorough assessment of their existing infrastructure and identified several vulnerabilities.</p>
+                    <p>We implemented a multi-layered security approach, including:</p>
+                    <ul>
+                        <li>Advanced threat detection systems</li>
+                        <li>Zero Trust Architecture</li>
+                        <li>Employee cybersecurity training programs</li>
+                        <li>24/7 monitoring and incident response</li>
+                    </ul>
+                    <p>As a result, the company experienced a 75% reduction in security incidents and successfully thwarted several attempted breaches within the first year of implementation.</p>
+                </div>
+            </div>
+        </div>
+        <div class="case-study">
+            <h2>Implementing Zero Trust Architecture for a Tech Startup</h2>
+            <p class="summary">Discover how we helped a rapidly growing tech startup adopt a Zero Trust security model, improving their overall security while maintaining flexibility and scalability.</p>
+            <a href="#" class="read-more-btn">Read Full Case Study</a>
+            <div class="case-study-modal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <h2>Implementing Zero Trust Architecture for a Tech Startup</h2>
+                    <p>A fast-growing tech startup approached CY-TECT to enhance their security posture while maintaining the agility needed for rapid growth. We proposed and implemented a Zero Trust Architecture.</p>
+                    <p>Key components of the implementation included:</p>
+                    <ul>
+                        <li>Identity and access management (IAM) overhaul</li>
+                        <li>Micro-segmentation of the network</li>
+                        <li>Continuous monitoring and verification</li>
+                        <li>Secure API gateways</li>
+                    </ul>
+                    <p>The result was a 60% improvement in threat detection and response times, with no impact on the company's development velocity. The startup was able to scale securely, gaining trust from enterprise clients.</p>
+                </div>
+            </div>
+        </div>
+        <div class="case-study">
+            <h2>Incident Response: Mitigating a Large-Scale Data Breach</h2>
+            <p class="summary">Explore our rapid response to a major data breach, including containment, eradication, and recovery processes that minimized damage and strengthened the client's security measures.</p>
+            <a href="#" class="read-more-btn">Read Full Case Study</a>
+            <div class="case-study-modal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <h2>Incident Response: Mitigating a Large-Scale Data Breach</h2>
+                    <p>A large e-commerce company suffered a significant data breach, potentially exposing millions of customer records. CY-TECT's incident response team was called in to manage the crisis.</p>
+                    <p>Our approach included:</p>
+                    <ul>
+                        <li>Immediate containment of the breach</li>
+                        <li>Forensic analysis to determine the extent of the breach</li>
+                        <li>Data recovery and system hardening</li>
+                        <li>Implementation of advanced monitoring tools</li>
+                        <li>Development of a comprehensive incident response plan</li>
+                    </ul>
+                    <p>Through our efforts, we contained the breach within 24 hours, recovered 99.9% of affected data, and helped the company avoid potential fines by demonstrating due diligence in their response. Post-incident, we helped implement security measures that have prevented any further breaches to date.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 CY-TECT. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.read-more-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const modal = this.nextElementSibling;
+                modal.style.display = 'block';
+            });
+        });
+
+        document.querySelectorAll('.close-modal').forEach(closeBtn => {
+            closeBtn.addEventListener('click', function() {
+                this.closest('.case-study-modal').style.display = 'none';
+            });
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('case-study-modal')) {
+                event.target.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

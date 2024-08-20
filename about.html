@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CY-TECT - About Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary: #202A44;
+            --accent: #7C3AED;
+            --secondary: #34D399;
+            --neutral: #E5E7EB;
+            --highlight: #FBBF24;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--primary);
+            color: var(--neutral);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: rgba(32, 42, 68, 0.8);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li {
+            margin-left: 30px;
+        }
+        .nav-links a {
+            color: var(--neutral);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        .about-content {
+            padding-top: 100px;
+        }
+        .about-section {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        .about-section h2 {
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        .team-member {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        footer {
+            background-color: rgba(32, 42, 68, 0.9);
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: var(--accent);
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: var(--primary);
+                padding: 20px;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">CY-TECT</div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="whitepapers.html">Whitepapers</a></li>
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container about-content">
+        <h1>About CY-TECT</h1>
+        <div class="about-section">
+            <h2>Our Mission</h2>
+            <p>At CY-TECT, our mission is to provide cutting-edge cybersecurity solutions that protect businesses and individuals from ever-evolving digital threats. We strive to stay ahead of the curve, constantly innovating and adapting our strategies to ensure our clients' digital assets remain secure.</p>
+        </div>
+        <div class="about-section">
+            <h2>Our Team</h2>
+            <div class="team-member">
+                <div>
+                    <h3>Shiva Yadav</h3>
+                    <p>Founder & CEO</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div>
+                    <h3>Aakhya Jain</h3>
+                    <p>Founder & Chief Security Officer</p>
+                </div>
+            </div>
+        </div>
+        <div class="about-section">
+            <h2>Our Approach</h2>
+            <p>We believe in a proactive approach to cybersecurity. Our team of experts continuously monitors the threat landscape, developing and implementing robust security measures to protect our clients from potential risks before they become actual threats. We combine cutting-edge technology with human expertise to provide comprehensive, tailored security solutions.</p>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 CY-TECT. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

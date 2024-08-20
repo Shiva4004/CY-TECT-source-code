@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CY-TECT - Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary: #202A44;
+            --accent: #7C3AED;
+            --secondary: #34D399;
+            --neutral: #E5E7EB;
+            --highlight: #FBBF24;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--primary);
+            color: var(--neutral);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: rgba(32, 42, 68, 0.8);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li {
+            margin-left: 30px;
+        }
+        .nav-links a {
+            color: var(--neutral);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        .blog-content {
+            padding-top: 100px;
+        }
+        .blog-post {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+        .blog-post:hover {
+            transform: translateY(-5px);
+        }
+        .blog-post h2 {
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        .blog-post .meta {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        .blog-post .content {
+            margin-bottom: 15px;
+        }
+        .read-more {
+            color: var(--highlight);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .read-more:hover {
+            color: var(--accent);
+        }
+        .full-content {
+            display: none;
+        }
+        footer {
+            background-color: rgba(32, 42, 68, 0.9);
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: var(--accent);
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: var(--primary);
+                padding: 20px;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">CY-TECT</div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="whitepapers.html">Whitepapers</a></li>
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container blog-content">
+        <h1>CY-TECT Blog</h1>
+        <div class="blog-post">
+            <h2>Top 5 Cybersecurity Threats in 2024</h2>
+            <p class="meta">Posted on January 10, 2024 by Shiva Yadav</p>
+            <div class="content">
+                <p class="preview">As technology evolves, so do the tactics of cybercriminals. In this article, we explore the top cybersecurity threats expected to dominate in 2024, from AI-driven attacks to ransomware as a service.</p>
+                <div class="full-content">
+                    <p>AI-driven cyberattacks are becoming more sophisticated, enabling attackers to automate processes and target vulnerabilities faster than ever before. Additionally, Ransomware as a Service (RaaS) is on the rise, making it easier for less skilled hackers to execute devastating attacks.</p>
+                    <p>Phishing attacks remain a significant threat, with more personalized and convincing tactics that are hard to detect. Supply chain attacks are also on the rise, with attackers targeting vulnerabilities in third-party software to compromise larger systems. Finally, the rapid adoption of IoT devices has introduced new security challenges, as many of these devices lack robust security measures.</p>
+                </div>
+            </div>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+        <div class="blog-post">
+            <h2>Why Zero Trust is the Future of Cybersecurity</h2>
+            <p class="meta">Posted on December 15, 2024 by Aakhya Jain</p>
+            <div class="content">
+                <p class="preview">The Zero Trust model has gained traction as a robust approach to cybersecurity. Learn why it's becoming the go-to strategy for organizations looking to enhance their security posture.</p>
+                <div class="full-content">
+                    <p>Zero Trust is based on the principle of "never trust, always verify." This model assumes that threats could be inside or outside the network, and thus requires strict verification for any access request. By implementing Zero Trust, organizations can reduce the attack surface, limit lateral movement within the network, and respond more effectively to threats.</p>
+                    <p>Key components of Zero Trust include multifactor authentication (MFA), micro-segmentation, and continuous monitoring. Together, these elements create a more secure environment that is less vulnerable to breaches and internal threats.</p>
+                </div>
+            </div>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+        <div class="blog-post">
+            <h2>How to Build a Cybersecurity Awareness Program for Employees</h2>
+            <p class="meta">Posted on November 28, 2024 by Shiva Yadav</p>
+            <div class="content">
+                <p class="preview">Employees are often the first line of defense in cybersecurity. Discover how to create an effective awareness program that empowers your team to recognize and respond to threats.</p>
+                <div class="full-content">
+                    <p>Building a cybersecurity awareness program involves training employees to recognize phishing attempts, understand the importance of strong passwords, and follow best practices for data protection. Regular training sessions, phishing simulations, and engaging content are crucial to keeping cybersecurity top of mind.</p>
+                    <p>Additionally, fostering a culture of security within the organization can encourage employees to be proactive in reporting suspicious activities. Providing clear policies and easy-to-follow guidelines will help ensure that security becomes a shared responsibility across all levels of the organization.</p>
+                </div>
+            </div>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 CY-TECT. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.read-more').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const content = this.previousElementSibling;
+                const fullContent = content.querySelector('.full-content');
+                const preview = content.querySelector('.preview');
+                if (fullContent.style.display === 'none' || fullContent.style.display === '') {
+                    fullContent.style.display = 'block';
+                    preview.style.display = 'none';
+                    this.textContent = 'Read Less';
+                } else {
+                    fullContent.style.display = 'none';
+                    preview.style.display = 'block';
+                    this.textContent = 'Read More';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
